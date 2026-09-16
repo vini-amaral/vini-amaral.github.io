@@ -19,4 +19,21 @@ describe('Home', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the home sections in the order defined by the product specification', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const headings = Array.from(compiled.querySelectorAll('h1, h2')).map((el) =>
+      el.textContent?.trim(),
+    );
+
+    expect(headings).toEqual([
+      'Hero',
+      'Agora',
+      'Projetos selecionados',
+      'Capacidades técnicas',
+      'Trajetória de carreira',
+      'Sobre',
+      'Contato',
+    ]);
+  });
 });
