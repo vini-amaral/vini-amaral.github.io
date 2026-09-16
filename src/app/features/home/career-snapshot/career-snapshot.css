@@ -1,0 +1,25 @@
+.career-stages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.career-stages li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.career-stages li:not(:last-child)::after {
+  content: '→';
+  color: var(--color-ink-muted);
+}
+
+app-button {
+  display: inline-block;
+  margin-top: 2rem;
+}

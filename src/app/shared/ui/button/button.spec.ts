@@ -31,20 +31,23 @@ describe('Button', () => {
     fixture = TestBed.createComponent(HostComponent);
   });
 
-  it('should render a native button by default', () => {
+  it('should render a native button by default with its projected content', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('button.button')).toBeTruthy();
+    const button = compiled.querySelector('button.button');
+    expect(button).toBeTruthy();
+    expect(button?.textContent?.trim()).toBe('Ação');
     expect(compiled.querySelector('a')).toBeFalsy();
   });
 
-  it('should render an internal link when routerLink is set', () => {
+  it('should render an internal link with its projected content when routerLink is set', () => {
     fixture.componentInstance.routerLink = '/contact';
     fixture.detectChanges();
 
     const anchor = (fixture.nativeElement as HTMLElement).querySelector('a');
     expect(anchor).toBeTruthy();
     expect(anchor?.getAttribute('href')).toBe('/contact');
+    expect(anchor?.textContent?.trim()).toBe('Ação');
   });
 
   it('should render a safe external link when href and target=_blank are set', () => {

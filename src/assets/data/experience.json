@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "avanade",
+      "company": "Avanade",
+      "employmentType": "full-time",
+      "roles": [
+        {
+          "id": "tech-lead-scrum-master-2026-06",
+          "title": "Associate Manager",
+          "specialty": "Tech Lead | Scrum Master",
+          "startDate": "2026-06-01",
+          "endDate": null,
+          "dateLabel": "Jun 2026 – Present",
+          "description": {
+            "en": "Technology Specialist at a global insurance leader, acting as Scrum Master and Technical Lead. I coordinate agile ceremonies, remove impediments, and manage offshore teams to ensure alignment with Product Owners. I drive technical governance and code quality, mentor developers, and translate business needs into solutions. I produce critical documentation and deployment plans, ensuring value delivery aligned with strategic goals."
+          },
+          "technologies": [
+            "Copilot",
+            ".NET",
+            "Angular",
+            "Azure DevOps",
+            "Oracle",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "tech-lead-scrum-master-2024-06",
+          "title": "Consultant",
+          "specialty": "Tech Lead | Scrum Master",
+          "startDate": "2024-06-01",
+          "endDate": null,
+          "dateLabel": "Jun 2024 – Present",
+          "description": {
+            "en": "Working as a technology specialist for a global leader in the insurance sector, participating in the transition between vendors. Responsible for coordinating and facilitating agile ceremonies as a Scrum Master and managing an offshore team, overcoming cultural and language barriers to ensure effective communication and alignment with Product Owners (POs)."
+          },
+          "technologies": [
+            ".NET",
+            "Angular",
+            "Azure DevOps",
+            "Oracle",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "needs-review"
+        },
+        {
+          "id": "software-quality-lead-2023-07",
+          "title": "Consultant",
+          "specialty": "Software Quality Lead",
+          "startDate": "2023-07-01",
+          "endDate": "2024-06-28",
+          "dateLabel": "Jul 2023 – Jun 2024",
+          "description": {
+            "en": "Led internal projects focused on managing a QA analyst team, defining strategies to optimize testing and validation processes, tracking quality metrics, and presenting reports to management."
+          },
+          "technologies": [
+            "Azure DevOps",
+            "Power Automate",
+            "Power BI"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "scrum-master-team-lead-2022-01",
+          "title": "Consultant",
+          "specialty": "Scrum Master | Team Lead",
+          "startDate": "2022-01-01",
+          "endDate": "2023-07-28",
+          "dateLabel": "Jan 2022 – Jul 2023",
+          "description": {
+            "en": "Consulted for one of the leading healthcare institutions in Latin America. Led teams across various software development and support initiatives, ensuring agile deliveries and continuous improvement of critical hospital systems."
+          },
+          "technologies": [
+            "Angular",
+            "Azure DevOps",
+            ".NET",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "technical-lead-developer-2020-06",
+          "title": "Consultant",
+          "specialty": "Technical Lead | Developer",
+          "startDate": "2020-06-01",
+          "endDate": "2022-28-28",
+          "dateLabel": "Jun 2020 – Jan 2022",
+          "description": {
+            "en": "Worked as a technical lead for one of the largest global companies in the pharmaceutical industry. Responsible for the continuous improvement of critical systems, ensuring operational efficiency and strategic support for the development team."
+          },
+          "technologies": [
+            ".NET",
+            "Azure DevOps",
+            "MVC",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "application-support-analyst-developer-2019-01",
+          "title": "Senior Analyst",
+          "specialty": "Application Support Analyst | Developer",
+          "startDate": "2019-01-01",
+          "endDate": "2020-05-28",
+          "dateLabel": "Jan 2019 – May 2020",
+          "description": {
+            "en": "Worked as a developer for one of the largest global companies in the pharmaceutical industry, integrating the support and systems evolution team. Responsible for ensuring the stability of critical applications, implementing continuous improvements, and resolving incidents."
+          },
+          "technologies": [
+            ".NET",
+            "Azure DevOps",
+            "MVC",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "application-support-analyst-2016-02",
+          "title": "Senior Analyst",
+          "specialty": "Application Support Analyst",
+          "startDate": "2016-02-01",
+          "endDate": "2018-12-28",
+          "dateLabel": "Feb 2016 – Dec 2018",
+          "description": {
+            "en": "Worked at one of the largest multinational pharmaceutical companies, focused on system support and continuous improvement. Responsible for handling and resolving tickets, performing root cause analysis, and creating a knowledge base to optimize support processes."
+          },
+          "technologies": [
+            ".NET",
+            "Integration Services (SSIS)",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "technical-lead-developer-2015-04",
+          "title": "Senior Analyst",
+          "specialty": "Technical Lead | Developer",
+          "startDate": "2015-04-01",
+          "endDate": "2015-12-28",
+          "dateLabel": "Apr 2015 – Dec 2015",
+          "description": {
+            "en": "Worked in the chemical and agricultural sector, contributing to the evolution of a legacy sales system used by hundreds of representatives across Brazil."
+          },
+          "technologies": [
+            ".NET",
+            "C#",
+            "SQL Server",
+            "Web Forms",
+            "Web Services",
+            "Windows Forms",
+            "Windows Services"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "application-support-analyst-2014-12",
+          "title": "Senior Analyst",
+          "specialty": "Application Support Analyst",
+          "startDate": "2014-12-01",
+          "endDate": "2015-04-28",
+          "dateLabel": "Dec 2014 – Apr 2015",
+          "description": {
+            "en": "Continued working in the pharmaceutical sector, providing support for legacy systems in a structured support environment."
+          },
+          "technologies": [
+            ".NET",
+            "Integration Services (SSIS)",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "application-support-analyst-2014-09",
+          "title": "Analyst",
+          "specialty": "Application Support Analyst",
+          "startDate": "2014-09-01",
+          "endDate": "2014-11-28",
+          "dateLabel": "Sep 2014 – Nov 2014",
+          "description": {
+            "en": "Worked in the pharmaceutical sector, providing support for legacy systems in a structured support environment."
+          },
+          "technologies": [
+            ".NET",
+            "Integration Services (SSIS)",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "developer-2014-06",
+          "title": "Analyst",
+          "specialty": "Developer",
+          "startDate": "2014-06-01",
+          "endDate": "2014-08-28",
+          "dateLabel": "Jun 2014 – Aug 2014",
+          "description": {
+            "en": "Participated in short-term projects for companies in the financial and telecommunications sectors, contributing to the development of new systems."
+          },
+          "technologies": [
+            ".NET",
+            "HTML5",
+            "WCF"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "technical-lead-developer-2012-12",
+          "title": "Analyst",
+          "specialty": "Technical Lead | Developer",
+          "startDate": "2012-12-01",
+          "endDate": "2014-05-28",
+          "dateLabel": "Dec 2012 – May 2014",
+          "description": {
+            "en": "Worked on a strategic project for a multinational in the chemical and agricultural sector, contributing to the evolution of the sales solution used by representatives throughout Brazil."
+          },
+          "technologies": [
+            ".NET",
+            "C#",
+            "SQL Server",
+            "Web Forms",
+            "Web Services",
+            "Windows Forms",
+            "Windows Services"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "developer-2011-05",
+          "title": "Developer",
+          "specialty": "Developer",
+          "startDate": "2011-05-01",
+          "endDate": "2012-11-28",
+          "dateLabel": "May 2011 – Nov 2012",
+          "description": {
+            "en": "Worked on the development and maintenance of a critical order issuance system for a multinational in the chemical and agricultural sector, used by sales teams across Brazil."
+          },
+          "technologies": [
+            ".NET",
+            "C#",
+            "SQL Server",
+            "Web Forms",
+            "Web Services",
+            "Windows Forms",
+            "Windows Services"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        }
+      ],
+      "source": "linkedin",
+      "reviewStatus": "approved",
+      "sourceNote": "The LinkedIn export groups the Avanade roles under parent positions and contains one date inconsistency: the embedded Tech Lead | Scrum Master role is Jun 2024 – Present while the Consultant parent position ends May 2026. This is flagged for user review."
+    },
+    {
+      "id": "b2sys-consultoria-e-sistemas",
+      "company": "B2sys Consultoria E Sistemas",
+      "employmentType": "full-time",
+      "roles": [
+        {
+          "id": "developer-2010-08",
+          "title": "Developer",
+          "specialty": "Developer",
+          "startDate": "2010-08-01",
+          "endDate": "2011-05-28",
+          "dateLabel": "Aug 2010 – May 2011",
+          "description": {
+            "en": "Worked on the development and maintenance of applications for various clients, delivering web-based solutions and ensuring the evolution of legacy systems."
+          },
+          "technologies": [
+            "ASP.NET",
+            ".NET",
+            "SQL Server"
+          ],
+          "source": "linkedin",
+          "reviewStatus": "approved"
+        }
+      ],
+      "source": "linkedin",
+      "reviewStatus": "approved"
+    }
+  ]
+}

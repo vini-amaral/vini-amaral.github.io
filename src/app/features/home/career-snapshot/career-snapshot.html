@@ -1,6 +1,17 @@
 <app-section>
   <app-container>
     <app-heading [level]="2" visual="h2">Trajetória de carreira</app-heading>
-    <p class="text-ink-muted">O conteúdo desta seção será implementado em um próximo prompt.</p>
+
+    @if (stages().length > 0) {
+      <ol class="career-stages">
+        @for (stage of stages(); track stage; let last = $last) {
+          <li>
+            <app-tag [variant]="last ? 'accent' : 'neutral'">{{ stage }}</app-tag>
+          </li>
+        }
+      </ol>
+    }
+
+    <app-button variant="secondary" routerLink="/experience">Ver experiência completa</app-button>
   </app-container>
 </app-section>
