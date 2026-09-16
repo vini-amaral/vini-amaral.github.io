@@ -1,6 +1,15 @@
 <app-section>
   <app-container>
     <app-heading [level]="2" visual="h2">Projetos selecionados</app-heading>
-    <p class="text-ink-muted">O conteúdo desta seção será implementado em um próximo prompt.</p>
+
+    @if (selectedProjects().length > 0) {
+      <ul class="selected-projects-list">
+        @for (project of selectedProjects(); track project.id) {
+          <li>
+            <app-project-summary [project]="project" />
+          </li>
+        }
+      </ul>
+    }
   </app-container>
 </app-section>

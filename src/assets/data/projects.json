@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "example-1",
+      "slug": "example-1",
+      "title": {"pt-BR": "Exemplo 1", "en": "Example 1"},
+      "summary": {"pt-BR": "Placeholder para projeto real.", "en": "Placeholder for a real project."},
+      "problem": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "solution": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "role": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "technologies": [],
+      "links": {"live": null, "repository": null},
+      "image": null,
+      "featured": true,
+      "status": "placeholder",
+      "source": "user",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "example-2",
+      "slug": "example-2",
+      "title": {"pt-BR": "Exemplo 2", "en": "Example 2"},
+      "summary": {"pt-BR": "Placeholder para projeto real.", "en": "Placeholder for a real project."},
+      "problem": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "solution": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "role": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "technologies": [],
+      "links": {"live": null, "repository": null},
+      "image": null,
+      "featured": true,
+      "status": "placeholder",
+      "source": "user",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "example-3",
+      "slug": "example-3",
+      "title": {"pt-BR": "Exemplo 3", "en": "Example 3"},
+      "summary": {"pt-BR": "Placeholder para projeto real.", "en": "Placeholder for a real project."},
+      "problem": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "solution": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "role": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "technologies": [],
+      "links": {"live": null, "repository": null},
+      "image": null,
+      "featured": false,
+      "status": "placeholder",
+      "source": "user",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "example-4",
+      "slug": "example-4",
+      "title": {"pt-BR": "Exemplo 4", "en": "Example 4"},
+      "summary": {"pt-BR": "Placeholder para projeto real.", "en": "Placeholder for a real project."},
+      "problem": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "solution": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "role": {"pt-BR": "A preencher.", "en": "To be filled."},
+      "technologies": [],
+      "links": {"live": null, "repository": null},
+      "image": null,
+      "featured": false,
+      "status": "placeholder",
+      "source": "user",
+      "reviewStatus": "draft"
+    }
+  ]
+}

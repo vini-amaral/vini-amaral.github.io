@@ -25,6 +25,7 @@ describe('Home', () => {
       version: 1,
       data: { updatedAt: '2026-01-01', items: [] },
     });
+    httpMock.expectOne('assets/data/projects.json').flush({ version: 1, items: [] });
     fixture.detectChanges();
   });
 
