@@ -28,6 +28,10 @@ describe('Home', () => {
     httpMock.expectOne('assets/data/projects.json').flush({ version: 1, items: [] });
     httpMock.expectOne('assets/data/skills.json').flush({ version: 1, items: [] });
     httpMock.expectOne('assets/data/experience.json').flush({ version: 1, items: [] });
+    httpMock
+      .expectOne('assets/data/about.json')
+      .flush({ version: 1, data: { intro: { 'pt-BR': '' }, sections: [] } });
+    httpMock.expectOne('assets/data/social-links.json').flush({ version: 1, items: [] });
     fixture.detectChanges();
   });
 

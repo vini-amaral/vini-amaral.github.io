@@ -1,6 +1,19 @@
 <app-section>
   <app-container>
     <app-heading [level]="2" visual="h2">Contato</app-heading>
-    <p class="text-ink-muted">O conteúdo desta seção será implementado em um próximo prompt.</p>
+
+    @if (links().length > 0) {
+      <div class="contact-links">
+        @for (link of links(); track link.id) {
+          <app-button
+            variant="secondary"
+            [href]="link.url!"
+            [target]="link.type === 'email' ? '_self' : '_blank'"
+          >
+            {{ link.label }}
+          </app-button>
+        }
+      </div>
+    }
   </app-container>
 </app-section>

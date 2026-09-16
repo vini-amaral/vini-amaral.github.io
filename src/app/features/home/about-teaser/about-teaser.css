@@ -1,0 +1,16 @@
+.about-intro {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.about-teaser-text {
+  margin-top: 1rem;
+  max-width: 60ch;
+  color: var(--color-ink-muted);
+}
+
+app-button {
+  display: inline-block;
+  margin-top: 2rem;
+}

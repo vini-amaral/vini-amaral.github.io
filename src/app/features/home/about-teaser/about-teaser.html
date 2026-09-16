@@ -1,6 +1,15 @@
 <app-section surface="raised">
   <app-container>
     <app-heading [level]="2" visual="h2">Sobre</app-heading>
-    <p class="text-ink-muted">O conteúdo desta seção será implementado em um próximo prompt.</p>
+
+    @if (intro()) {
+      <p class="about-intro">{{ intro() }}</p>
+    }
+
+    @if (teaserParagraph()) {
+      <p class="about-teaser-text">{{ teaserParagraph() }}</p>
+    }
+
+    <app-button variant="secondary" routerLink="/about">Saiba mais sobre mim</app-button>
   </app-container>
 </app-section>
