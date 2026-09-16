@@ -1,0 +1,39 @@
+.hero-layout {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-title {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.hero-summary {
+  margin-top: 1.5rem;
+  max-width: 60ch;
+}
+
+.hero-copy > app-button {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.hero-portrait {
+  display: flex;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-border);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 768px) {
+  .hero-layout {
+    grid-template-columns: 3fr 2fr;
+  }
+}

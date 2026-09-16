@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { Home } from './home';
 
@@ -9,6 +10,7 @@ describe('Home', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Home],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Home);
@@ -27,7 +29,7 @@ describe('Home', () => {
     );
 
     expect(headings).toEqual([
-      'Hero',
+      'Vinicius Alves do Amaral',
       'Agora',
       'Projetos selecionados',
       'Capacidades técnicas',
