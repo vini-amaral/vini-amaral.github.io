@@ -3,7 +3,11 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { Project } from '../../../core/services/projects';
+import { Project } from '../../../core/models/project';
+import {
+  JsonProjectRepository,
+  ProjectRepository,
+} from '../../../core/repositories/project-repository';
 import { SelectedProjects } from './selected-projects';
 
 function projectFixture(overrides: Partial<Project>): Project {
@@ -20,6 +24,8 @@ function projectFixture(overrides: Partial<Project>): Project {
     image: null,
     featured: false,
     status: 'placeholder',
+    source: 'user',
+    reviewStatus: 'draft',
     ...overrides,
   };
 }
@@ -31,7 +37,12 @@ describe('SelectedProjects', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SelectedProjects],
-      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: ProjectRepository, useClass: JsonProjectRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);

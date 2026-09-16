@@ -1,7 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-import { Project, ProjectsContent } from '../../../core/services/projects';
+import { Project } from '../../../core/models/project';
+import { ProjectRepository } from '../../../core/repositories/project-repository';
 import { ProjectSummary } from '../../../shared/components/project-summary/project-summary';
 import { Container } from '../../../shared/ui/container/container';
 import { Heading } from '../../../shared/ui/heading/heading';
@@ -16,9 +17,9 @@ const MAX_SELECTED_PROJECTS = 4;
   styleUrl: './selected-projects.css',
 })
 export class SelectedProjects {
-  private readonly projectsContent = inject(ProjectsContent);
+  private readonly projectRepository = inject(ProjectRepository);
 
-  private readonly projects = toSignal(this.projectsContent.getProjects(), {
+  private readonly projects = toSignal(this.projectRepository.getProjects(), {
     initialValue: [] as Project[],
   });
 

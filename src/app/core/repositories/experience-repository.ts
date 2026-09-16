@@ -2,17 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-export interface ExperienceRole {
-  id: string;
-  title: string;
-  startDate: string;
-  endDate: string | null;
-}
+import { ExperienceEntry } from '../models/experience-entry';
 
-export interface ExperienceEntry {
-  id: string;
-  company: string;
-  roles: ExperienceRole[];
+export abstract class ExperienceRepository {
+  abstract getExperience(): Observable<ExperienceEntry[]>;
 }
 
 interface ExperienceResource {
@@ -20,10 +13,8 @@ interface ExperienceResource {
   items: ExperienceEntry[];
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ExperienceContent {
+@Injectable()
+export class JsonExperienceRepository extends ExperienceRepository {
   private readonly http = inject(HttpClient);
 
   getExperience(): Observable<ExperienceEntry[]> {

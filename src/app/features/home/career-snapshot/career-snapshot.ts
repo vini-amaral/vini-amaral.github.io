@@ -1,7 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-import { ExperienceContent, ExperienceEntry } from '../../../core/services/experience';
+import { ExperienceEntry } from '../../../core/models/experience-entry';
+import { ExperienceRepository } from '../../../core/repositories/experience-repository';
 import { Button } from '../../../shared/ui/button/button';
 import { Container } from '../../../shared/ui/container/container';
 import { Heading } from '../../../shared/ui/heading/heading';
@@ -15,9 +16,9 @@ import { Tag } from '../../../shared/ui/tag/tag';
   styleUrl: './career-snapshot.css',
 })
 export class CareerSnapshot {
-  private readonly experienceContent = inject(ExperienceContent);
+  private readonly experienceRepository = inject(ExperienceRepository);
 
-  private readonly entries = toSignal(this.experienceContent.getExperience(), {
+  private readonly entries = toSignal(this.experienceRepository.getExperience(), {
     initialValue: [] as ExperienceEntry[],
   });
 

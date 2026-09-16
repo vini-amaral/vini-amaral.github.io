@@ -3,6 +3,24 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
+import { AboutRepository, JsonAboutRepository } from '../../core/repositories/about-repository';
+import {
+  ExperienceRepository,
+  JsonExperienceRepository,
+} from '../../core/repositories/experience-repository';
+import {
+  HomeHighlightsRepository,
+  JsonHomeHighlightsRepository,
+} from '../../core/repositories/home-highlights-repository';
+import {
+  JsonProjectRepository,
+  ProjectRepository,
+} from '../../core/repositories/project-repository';
+import { JsonSkillRepository, SkillRepository } from '../../core/repositories/skill-repository';
+import {
+  JsonSocialLinkRepository,
+  SocialLinkRepository,
+} from '../../core/repositories/social-link-repository';
 import { Home } from './home';
 
 describe('Home', () => {
@@ -13,7 +31,17 @@ describe('Home', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Home],
-      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: HomeHighlightsRepository, useClass: JsonHomeHighlightsRepository },
+        { provide: ProjectRepository, useClass: JsonProjectRepository },
+        { provide: SkillRepository, useClass: JsonSkillRepository },
+        { provide: ExperienceRepository, useClass: JsonExperienceRepository },
+        { provide: AboutRepository, useClass: JsonAboutRepository },
+        { provide: SocialLinkRepository, useClass: JsonSocialLinkRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);

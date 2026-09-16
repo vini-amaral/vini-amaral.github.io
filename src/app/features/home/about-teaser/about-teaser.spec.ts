@@ -3,6 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
+import { AboutRepository, JsonAboutRepository } from '../../../core/repositories/about-repository';
 import { AboutTeaser } from './about-teaser';
 
 describe('AboutTeaser', () => {
@@ -12,7 +13,12 @@ describe('AboutTeaser', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AboutTeaser],
-      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: AboutRepository, useClass: JsonAboutRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);

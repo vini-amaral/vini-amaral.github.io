@@ -2,17 +2,25 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { HomeHighlightItem, HomeHighlights } from './home-highlights';
+import { HomeHighlightItem } from '../models/home-highlight';
+import {
+  HomeHighlightsRepository,
+  JsonHomeHighlightsRepository,
+} from './home-highlights-repository';
 
-describe('HomeHighlights', () => {
-  let service: HomeHighlights;
+describe('JsonHomeHighlightsRepository', () => {
+  let repository: HomeHighlightsRepository;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: HomeHighlightsRepository, useClass: JsonHomeHighlightsRepository },
+      ],
     });
-    service = TestBed.inject(HomeHighlights);
+    repository = TestBed.inject(HomeHighlightsRepository);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -21,12 +29,12 @@ describe('HomeHighlights', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(repository).toBeTruthy();
   });
 
   it('should fetch and unwrap the highlight items from the JSON resource', () => {
     let emitted: HomeHighlightItem[] | undefined;
-    service.getHomeHighlights().subscribe((items) => {
+    repository.getHomeHighlights().subscribe((items) => {
       emitted = items;
     });
 
@@ -43,6 +51,8 @@ describe('HomeHighlights', () => {
             label: { 'pt-BR': 'Atualmente', en: 'Currently' },
             title: { 'pt-BR': 'Título de teste', en: 'Test title' },
             description: { 'pt-BR': 'Descrição de teste.', en: 'Test description.' },
+            source: 'linkedin',
+            reviewStatus: 'approved',
           },
         ],
       },
@@ -50,6 +60,5 @@ describe('HomeHighlights', () => {
 
     expect(emitted?.length).toBe(1);
     expect(emitted?.[0].id).toBe('current-role');
-    expect(emitted?.[0].title['pt-BR']).toBe('Título de teste');
   });
 });

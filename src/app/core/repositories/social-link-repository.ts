@@ -2,12 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-export interface SocialLink {
-  id: string;
-  type: string;
-  label: string;
-  url: string | null;
-  public: boolean;
+import { SocialLink } from '../models/social-link';
+
+export abstract class SocialLinkRepository {
+  abstract getSocialLinks(): Observable<SocialLink[]>;
 }
 
 interface SocialLinksResource {
@@ -15,10 +13,8 @@ interface SocialLinksResource {
   items: SocialLink[];
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class SocialLinksContent {
+@Injectable()
+export class JsonSocialLinkRepository extends SocialLinkRepository {
   private readonly http = inject(HttpClient);
 
   getSocialLinks(): Observable<SocialLink[]> {

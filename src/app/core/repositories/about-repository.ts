@@ -2,33 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-export interface LocalizedText {
-  'pt-BR': string;
-}
+import { AboutContent } from '../models/about-content';
 
-export interface AboutSection {
-  id: string;
-  title: LocalizedText;
-  body?: LocalizedText[];
-}
-
-export interface AboutData {
-  intro: LocalizedText;
-  sections: AboutSection[];
+export abstract class AboutRepository {
+  abstract getAbout(): Observable<AboutContent>;
 }
 
 interface AboutResource {
   version: number;
-  data: AboutData;
+  data: AboutContent;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AboutContent {
+@Injectable()
+export class JsonAboutRepository extends AboutRepository {
   private readonly http = inject(HttpClient);
 
-  getAbout(): Observable<AboutData> {
+  getAbout(): Observable<AboutContent> {
     return this.http
       .get<AboutResource>('assets/data/about.json')
       .pipe(map((resource) => resource.data));

@@ -3,6 +3,10 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
+import {
+  ExperienceRepository,
+  JsonExperienceRepository,
+} from '../../../core/repositories/experience-repository';
 import { CareerSnapshot } from './career-snapshot';
 
 describe('CareerSnapshot', () => {
@@ -12,7 +16,12 @@ describe('CareerSnapshot', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CareerSnapshot],
-      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: ExperienceRepository, useClass: JsonExperienceRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);

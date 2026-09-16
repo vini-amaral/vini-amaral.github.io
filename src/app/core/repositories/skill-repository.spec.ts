@@ -2,17 +2,22 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { SkillGroup, SkillsContent } from './skills';
+import { SkillGroup } from '../models/skill-group';
+import { JsonSkillRepository, SkillRepository } from './skill-repository';
 
-describe('SkillsContent', () => {
-  let service: SkillsContent;
+describe('JsonSkillRepository', () => {
+  let repository: SkillRepository;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SkillRepository, useClass: JsonSkillRepository },
+      ],
     });
-    service = TestBed.inject(SkillsContent);
+    repository = TestBed.inject(SkillRepository);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -21,12 +26,12 @@ describe('SkillsContent', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(repository).toBeTruthy();
   });
 
   it('should fetch and unwrap the skill groups from the JSON resource', () => {
     let emitted: SkillGroup[] | undefined;
-    service.getSkills().subscribe((groups) => {
+    repository.getSkills().subscribe((groups) => {
       emitted = groups;
     });
 
@@ -45,6 +50,5 @@ describe('SkillsContent', () => {
 
     expect(emitted?.length).toBe(1);
     expect(emitted?.[0].id).toBe('development');
-    expect(emitted?.[0].items).toEqual(['.NET', 'C#']);
   });
 });

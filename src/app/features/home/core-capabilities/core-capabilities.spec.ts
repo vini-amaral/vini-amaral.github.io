@@ -2,6 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { JsonSkillRepository, SkillRepository } from '../../../core/repositories/skill-repository';
 import { CoreCapabilities } from './core-capabilities';
 
 describe('CoreCapabilities', () => {
@@ -11,7 +12,11 @@ describe('CoreCapabilities', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CoreCapabilities],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SkillRepository, useClass: JsonSkillRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);

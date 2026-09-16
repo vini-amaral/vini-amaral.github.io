@@ -2,17 +2,22 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { AboutContent, AboutData } from './about';
+import { AboutContent } from '../models/about-content';
+import { AboutRepository, JsonAboutRepository } from './about-repository';
 
-describe('AboutContent', () => {
-  let service: AboutContent;
+describe('JsonAboutRepository', () => {
+  let repository: AboutRepository;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: AboutRepository, useClass: JsonAboutRepository },
+      ],
     });
-    service = TestBed.inject(AboutContent);
+    repository = TestBed.inject(AboutRepository);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -21,12 +26,12 @@ describe('AboutContent', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(repository).toBeTruthy();
   });
 
   it('should fetch and unwrap the about data from the JSON resource', () => {
-    let emitted: AboutData | undefined;
-    service.getAbout().subscribe((about) => {
+    let emitted: AboutContent | undefined;
+    repository.getAbout().subscribe((about) => {
       emitted = about;
     });
 
@@ -37,6 +42,8 @@ describe('AboutContent', () => {
       data: {
         intro: { 'pt-BR': 'Oi! Eu sou o Vinicius!' },
         sections: [{ id: 'origin', title: { 'pt-BR': 'Origem' }, body: [{ 'pt-BR': 'Texto.' }] }],
+        source: 'portfolio',
+        reviewStatus: 'draft',
       },
     });
 

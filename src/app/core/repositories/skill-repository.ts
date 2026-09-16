@@ -2,15 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-export interface LocalizedText {
-  'pt-BR': string;
-  en: string;
-}
+import { SkillGroup } from '../models/skill-group';
 
-export interface SkillGroup {
-  id: string;
-  name: LocalizedText;
-  items: string[];
+export abstract class SkillRepository {
+  abstract getSkills(): Observable<SkillGroup[]>;
 }
 
 interface SkillsResource {
@@ -18,10 +13,8 @@ interface SkillsResource {
   items: SkillGroup[];
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class SkillsContent {
+@Injectable()
+export class JsonSkillRepository extends SkillRepository {
   private readonly http = inject(HttpClient);
 
   getSkills(): Observable<SkillGroup[]> {

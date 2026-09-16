@@ -2,17 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-export interface LocalizedText {
-  'pt-BR': string;
-  en: string;
-}
+import { HomeHighlightItem } from '../models/home-highlight';
 
-export interface HomeHighlightItem {
-  id: string;
-  type: string;
-  label: LocalizedText;
-  title: LocalizedText;
-  description: LocalizedText;
+export abstract class HomeHighlightsRepository {
+  abstract getHomeHighlights(): Observable<HomeHighlightItem[]>;
 }
 
 interface HomeHighlightsResource {
@@ -23,10 +16,8 @@ interface HomeHighlightsResource {
   };
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class HomeHighlights {
+@Injectable()
+export class JsonHomeHighlightsRepository extends HomeHighlightsRepository {
   private readonly http = inject(HttpClient);
 
   getHomeHighlights(): Observable<HomeHighlightItem[]> {

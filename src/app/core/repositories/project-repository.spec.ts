@@ -2,17 +2,22 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { Project, ProjectsContent } from './projects';
+import { Project } from '../models/project';
+import { JsonProjectRepository, ProjectRepository } from './project-repository';
 
-describe('ProjectsContent', () => {
-  let service: ProjectsContent;
+describe('JsonProjectRepository', () => {
+  let repository: ProjectRepository;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: ProjectRepository, useClass: JsonProjectRepository },
+      ],
     });
-    service = TestBed.inject(ProjectsContent);
+    repository = TestBed.inject(ProjectRepository);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -21,12 +26,12 @@ describe('ProjectsContent', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(repository).toBeTruthy();
   });
 
   it('should fetch and unwrap the project items from the JSON resource', () => {
     let emitted: Project[] | undefined;
-    service.getProjects().subscribe((projects) => {
+    repository.getProjects().subscribe((projects) => {
       emitted = projects;
     });
 
@@ -48,6 +53,8 @@ describe('ProjectsContent', () => {
           image: null,
           featured: true,
           status: 'placeholder',
+          source: 'user',
+          reviewStatus: 'draft',
         },
       ],
     });

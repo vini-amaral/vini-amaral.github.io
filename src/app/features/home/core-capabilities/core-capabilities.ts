@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-import { SkillGroup, SkillsContent } from '../../../core/services/skills';
+import { SkillGroup } from '../../../core/models/skill-group';
+import { SkillRepository } from '../../../core/repositories/skill-repository';
 import { Card } from '../../../shared/ui/card/card';
 import { Container } from '../../../shared/ui/container/container';
 import { Heading } from '../../../shared/ui/heading/heading';
@@ -15,9 +16,9 @@ import { Tag } from '../../../shared/ui/tag/tag';
   styleUrl: './core-capabilities.css',
 })
 export class CoreCapabilities {
-  private readonly skillsContent = inject(SkillsContent);
+  private readonly skillRepository = inject(SkillRepository);
 
-  protected readonly groups = toSignal(this.skillsContent.getSkills(), {
+  protected readonly groups = toSignal(this.skillRepository.getSkills(), {
     initialValue: [] as SkillGroup[],
   });
 }

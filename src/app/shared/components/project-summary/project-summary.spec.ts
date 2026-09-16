@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { Project } from '../../../core/services/projects';
+import { Project } from '../../../core/models/project';
 import { ProjectSummary } from './project-summary';
 
 const PLACEHOLDER_PROJECT: Project = {
@@ -18,6 +18,8 @@ const PLACEHOLDER_PROJECT: Project = {
   image: null,
   featured: true,
   status: 'placeholder',
+  source: 'user',
+  reviewStatus: 'draft',
 };
 
 @Component({

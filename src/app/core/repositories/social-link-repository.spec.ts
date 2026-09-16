@@ -2,17 +2,22 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { SocialLink, SocialLinksContent } from './social-links';
+import { SocialLink } from '../models/social-link';
+import { JsonSocialLinkRepository, SocialLinkRepository } from './social-link-repository';
 
-describe('SocialLinksContent', () => {
-  let service: SocialLinksContent;
+describe('JsonSocialLinkRepository', () => {
+  let repository: SocialLinkRepository;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SocialLinkRepository, useClass: JsonSocialLinkRepository },
+      ],
     });
-    service = TestBed.inject(SocialLinksContent);
+    repository = TestBed.inject(SocialLinkRepository);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -21,12 +26,12 @@ describe('SocialLinksContent', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(repository).toBeTruthy();
   });
 
   it('should only return links that are public and have a URL', () => {
     let emitted: SocialLink[] | undefined;
-    service.getSocialLinks().subscribe((links) => {
+    repository.getSocialLinks().subscribe((links) => {
       emitted = links;
     });
 
@@ -41,6 +46,8 @@ describe('SocialLinksContent', () => {
           label: 'LinkedIn',
           url: 'https://www.linkedin.com/in/example',
           public: true,
+          source: 'linkedin',
+          reviewStatus: 'approved',
         },
         {
           id: 'email',
@@ -48,8 +55,18 @@ describe('SocialLinksContent', () => {
           label: 'E-mail',
           url: 'mailto:test@example.com',
           public: true,
+          source: 'linkedin',
+          reviewStatus: 'approved',
         },
-        { id: 'github', type: 'github', label: 'GitHub', url: null, public: false },
+        {
+          id: 'github',
+          type: 'github',
+          label: 'GitHub',
+          url: null,
+          public: false,
+          source: 'user',
+          reviewStatus: 'draft',
+        },
       ],
     });
 

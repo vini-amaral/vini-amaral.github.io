@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { Project } from '../../../core/services/projects';
+import { Project } from '../../../core/models/project';
 import { Button } from '../../ui/button/button';
 import { Card } from '../../ui/card/card';
 import { Heading } from '../../ui/heading/heading';

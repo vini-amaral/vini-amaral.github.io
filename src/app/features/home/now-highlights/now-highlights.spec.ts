@@ -2,6 +2,10 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import {
+  HomeHighlightsRepository,
+  JsonHomeHighlightsRepository,
+} from '../../../core/repositories/home-highlights-repository';
 import { NowHighlights } from './now-highlights';
 
 function flushHighlights(httpMock: HttpTestingController, titlePtBr: string): void {
@@ -29,7 +33,11 @@ describe('NowHighlights', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NowHighlights],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: HomeHighlightsRepository, useClass: JsonHomeHighlightsRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);

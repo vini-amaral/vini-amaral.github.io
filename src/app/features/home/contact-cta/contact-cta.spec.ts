@@ -3,6 +3,10 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
+import {
+  JsonSocialLinkRepository,
+  SocialLinkRepository,
+} from '../../../core/repositories/social-link-repository';
 import { ContactCta } from './contact-cta';
 
 describe('ContactCta', () => {
@@ -12,7 +16,12 @@ describe('ContactCta', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ContactCta],
-      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SocialLinkRepository, useClass: JsonSocialLinkRepository },
+      ],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);
