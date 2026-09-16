@@ -1,0 +1,23 @@
+.now-highlights-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.now-highlights-title {
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.now-highlights-description {
+  margin-top: 0.5rem;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 768px) {
+  .now-highlights-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

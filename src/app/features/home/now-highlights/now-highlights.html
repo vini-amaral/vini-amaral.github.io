@@ -1,6 +1,19 @@
 <app-section surface="raised">
   <app-container>
     <app-heading [level]="2" visual="h2">Agora</app-heading>
-    <p class="text-ink-muted">O conteúdo desta seção será implementado em um próximo prompt.</p>
+
+    @if (items().length > 0) {
+      <ul class="now-highlights-list">
+        @for (item of items(); track item.id) {
+          <li>
+            <app-card>
+              <app-tag variant="accent">{{ item.label['pt-BR'] }}</app-tag>
+              <p class="now-highlights-title">{{ item.title['pt-BR'] }}</p>
+              <p class="now-highlights-description">{{ item.description['pt-BR'] }}</p>
+            </app-card>
+          </li>
+        }
+      </ul>
+    }
   </app-container>
 </app-section>

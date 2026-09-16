@@ -1,3 +1,5 @@
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
@@ -6,16 +8,28 @@ import { Home } from './home';
 describe('Home', () => {
   let component: Home;
   let fixture: ComponentFixture<Home>;
+  let httpMock: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Home],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
 
+    httpMock = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(Home);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    httpMock.expectOne('assets/data/home-highlights.json').flush({
+      version: 1,
+      data: { updatedAt: '2026-01-01', items: [] },
+    });
+    fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   it('should create', () => {

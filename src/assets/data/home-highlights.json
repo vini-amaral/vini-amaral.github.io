@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "data": {
+    "updatedAt": "2026-09-14",
+    "items": [
+      {
+        "id": "current-role",
+        "type": "professional",
+        "label": {
+          "pt-BR": "Atualmente",
+          "en": "Currently"
+        },
+        "title": {
+          "pt-BR": "Associate Manager | Tech Lead | Scrum Master",
+          "en": "Associate Manager | Tech Lead | Scrum Master"
+        },
+        "description": {
+          "pt-BR": "Atuação em liderança técnica, governança técnica, qualidade de código, facilitação ágil e alinhamento entre equipes e negócio.",
+          "en": "Working across technical leadership, technical governance, code quality, agile facilitation and business-team alignment."
+        },
+        "source": "linkedin",
+        "reviewStatus": "approved"
+      },
+      {
+        "id": "current-focus-ai",
+        "type": "learning",
+        "label": {
+          "pt-BR": "Em desenvolvimento",
+          "en": "Current focus"
+        },
+        "title": {
+          "pt-BR": "IA aplicada ao desenvolvimento de software",
+          "en": "AI-assisted software development"
+        },
+        "description": {
+          "pt-BR": "Explorando agentes de IA e spec-driven development na construção deste próprio portfólio, como parte do aprimoramento contínuo das minhas habilidades.",
+          "en": "Exploring AI agents and spec-driven development while building this portfolio as part of my ongoing skill development."
+        },
+        "source": "user",
+        "reviewStatus": "approved"
+      },
+      {
+        "id": "current-portfolio",
+        "type": "project",
+        "label": {
+          "pt-BR": "Projeto atual",
+          "en": "Current project"
+        },
+        "title": {
+          "pt-BR": "Construindo este portfólio como produto de software",
+          "en": "Building this portfolio as a software product"
+        },
+        "description": {
+          "pt-BR": "Arquitetura baseada em Angular, conteúdo estruturado e uma camada de dados preparada para futura integração com API.",
+          "en": "An Angular-based architecture with structured content and a data layer prepared for future API integration."
+        },
+        "source": "user",
+        "reviewStatus": "approved"
+      }
+    ],
+    "source": "mixed",
+    "reviewStatus": "approved"
+  }
+}
