@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { Theme } from '../../services/theme';
 
 interface NavLink {
   path: string;
@@ -14,6 +16,8 @@ interface NavLink {
   styleUrl: './header.css',
 })
 export class Header {
+  protected readonly theme = inject(Theme);
+
   protected readonly navLinks: NavLink[] = [
     { path: '/', label: 'Início', exact: true },
     { path: '/projects', label: 'Projetos', exact: false },

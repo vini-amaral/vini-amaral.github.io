@@ -1,14 +1,32 @@
-<header>
-  <a routerLink="/">Vinicius Amaral</a>
+<header class="border-b border-border bg-surface">
+  <div class="page-container flex flex-wrap items-center justify-between gap-4 py-4">
+    <a routerLink="/" class="font-display text-lg font-bold tracking-tight">Vinicius Amaral</a>
 
-  <nav aria-label="Navegação principal">
-    @for (link of navLinks; track link.path) {
-      <a
-        [routerLink]="link.path"
-        routerLinkActive="is-active"
-        [routerLinkActiveOptions]="{ exact: link.exact }"
-        >{{ link.label }}</a
-      >
-    }
-  </nav>
+    <nav aria-label="Navegação principal" class="flex flex-wrap gap-4 text-sm">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+
+    <button
+      type="button"
+      class="theme-toggle text-sm"
+      [attr.aria-pressed]="theme.mode() === 'dark'"
+      [attr.aria-label]="
+        'Tema atual: ' +
+        (theme.mode() === 'dark' ? 'escuro' : 'claro') +
+        '. Alternar para tema ' +
+        (theme.mode() === 'dark' ? 'claro' : 'escuro') +
+        '.'
+      "
+      (click)="theme.toggle()"
+    >
+      {{ theme.mode() === 'dark' ? '🌙 Escuro' : '☀️ Claro' }}
+    </button>
+  </div>
 </header>
