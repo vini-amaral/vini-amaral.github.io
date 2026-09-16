@@ -1,0 +1,14 @@
+<header>
+  <a routerLink="/">Vinicius Amaral</a>
+
+  <nav aria-label="Navegação principal">
+    @for (link of navLinks; track link.path) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: link.exact }"
+        >{{ link.label }}</a
+      >
+    }
+  </nav>
+</header>
