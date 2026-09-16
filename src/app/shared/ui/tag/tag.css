@@ -1,0 +1,15 @@
+.tag {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border);
+  color: var(--color-ink-muted);
+}
+
+.tag--accent {
+  border-color: var(--color-accent-foreground);
+  color: var(--color-accent-foreground);
+}

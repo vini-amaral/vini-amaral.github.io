@@ -1,0 +1,15 @@
+.section {
+  display: block;
+  padding-block: 4rem;
+  background-color: var(--color-surface);
+}
+
+.section--raised {
+  background-color: var(--color-surface-raised);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+}

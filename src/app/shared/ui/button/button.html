@@ -1,0 +1,23 @@
+@if (routerLink()) {
+  <a
+    [routerLink]="routerLink()"
+    class="button"
+    [class.button--secondary]="variant() === 'secondary'"
+  >
+    <ng-content />
+  </a>
+} @else if (href()) {
+  <a
+    [href]="href()"
+    [target]="target()"
+    [attr.rel]="rel()"
+    class="button"
+    [class.button--secondary]="variant() === 'secondary'"
+  >
+    <ng-content />
+  </a>
+} @else {
+  <button [type]="type()" class="button" [class.button--secondary]="variant() === 'secondary'">
+    <ng-content />
+  </button>
+}
