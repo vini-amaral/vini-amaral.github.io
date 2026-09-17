@@ -1,4 +1,49 @@
-<section>
-  <h1>Experiência</h1>
-  <p>O histórico profissional será implementado nos próximos prompts.</p>
-</section>
+<app-section>
+  <app-container>
+    <app-heading [level]="1" visual="display">Experiência</app-heading>
+    <p class="experience-intro">
+      Histórico profissional em ordem cronológica, organizado por empresa.
+    </p>
+  </app-container>
+</app-section>
+
+@for (company of companies(); track company.id; let even = $even) {
+  <app-section [surface]="even ? 'raised' : 'default'">
+    <app-container>
+      <div class="company-header">
+        <app-heading [level]="2" visual="h2">{{ company.company }}</app-heading>
+        <p class="employment-type">{{ employmentTypeLabel(company.employmentType) }}</p>
+      </div>
+
+      <ol class="role-timeline">
+        @for (role of company.roles; track role.id) {
+          <li class="role-item">
+            <div class="role-heading">
+              <app-heading [level]="3" visual="h4">{{ role.title }}</app-heading>
+              @if (role.current) {
+                <app-tag variant="accent">Atual</app-tag>
+              }
+            </div>
+
+            @if (role.specialty) {
+              <p class="role-specialty">{{ role.specialty }}</p>
+            }
+
+            <p class="role-date">{{ role.dateLabel }}</p>
+            <p class="role-description">{{ description(role) }}</p>
+
+            @if (role.technologies.length > 0) {
+              <ul class="role-tech">
+                @for (tech of role.technologies; track tech) {
+                  <li>
+                    <app-tag>{{ tech }}</app-tag>
+                  </li>
+                }
+              </ul>
+            }
+          </li>
+        }
+      </ol>
+    </app-container>
+  </app-section>
+}
