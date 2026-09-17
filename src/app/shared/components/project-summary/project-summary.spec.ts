@@ -24,7 +24,7 @@ const PLACEHOLDER_PROJECT: Project = {
 
 @Component({
   imports: [ProjectSummary],
-  template: '<app-project-summary [project]="project" />',
+  template: '<app-project-summary [project]="project" [titleLevel]="2" />',
 })
 class HostComponent {
   project: Project = PLACEHOLDER_PROJECT;
@@ -47,6 +47,12 @@ describe('ProjectSummary', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('Exemplo 1');
     expect(compiled.textContent).toContain('Placeholder para projeto real.');
+  });
+
+  it('should render the title at the heading level the caller supplies, to keep the document outline sequential', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h2')?.textContent).toContain('Exemplo 1');
+    expect(compiled.querySelector('h3')).toBeFalsy();
   });
 
   it('should flag placeholder projects explicitly', () => {

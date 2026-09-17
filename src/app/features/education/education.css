@@ -41,10 +41,6 @@
   border-bottom: none;
 }
 
-.certification-item--expired {
-  opacity: 0.6;
-}
-
 .certification-heading {
   display: flex;
   flex-wrap: wrap;

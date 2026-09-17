@@ -49,7 +49,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 ### Phase 6 — Quality
 
 - [x] 026 — Responsive behavior
-- [ ] 027 — Accessibility review and fixes
+- [x] 027 — Accessibility review and fixes
 - [ ] 028 — SEO and metadata
 - [ ] 029 — Performance review
 - [ ] 030 — Automated tests

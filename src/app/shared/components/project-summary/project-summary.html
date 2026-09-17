@@ -5,7 +5,7 @@
     <app-tag>Placeholder</app-tag>
   }
 
-  <app-heading [level]="3" visual="h3">{{ project().title['pt-BR'] }}</app-heading>
+  <app-heading [level]="titleLevel()" visual="h3">{{ project().title['pt-BR'] }}</app-heading>
   <p class="project-summary">{{ project().summary['pt-BR'] }}</p>
 
   @if (project().technologies.length > 0) {

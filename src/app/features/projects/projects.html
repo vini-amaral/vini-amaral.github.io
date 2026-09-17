@@ -6,7 +6,7 @@
       <ul class="projects-list">
         @for (project of projects(); track project.id) {
           <li>
-            <app-project-summary [project]="project" />
+            <app-project-summary [project]="project" [titleLevel]="2" />
           </li>
         }
       </ul>
