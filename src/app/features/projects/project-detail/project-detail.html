@@ -1,4 +1,64 @@
-<section>
-  <h1>Detalhe do projeto</h1>
-  <p>Conteúdo do projeto "{{ slug() }}" será implementado nos próximos prompts.</p>
-</section>
+@if (project(); as project) {
+  <app-section>
+    <app-container>
+      @if (project.status === 'placeholder') {
+        <app-tag>Placeholder</app-tag>
+      }
+
+      <app-heading [level]="1" visual="display">{{ project.title['pt-BR'] }}</app-heading>
+
+      <div class="project-image" aria-hidden="true">PROJECT_IMAGE_PLACEHOLDER</div>
+
+      <p class="project-summary">{{ project.summary['pt-BR'] }}</p>
+
+      <dl class="project-details">
+        <div>
+          <dt>Problema</dt>
+          <dd>{{ project.problem['pt-BR'] }}</dd>
+        </div>
+        <div>
+          <dt>Solução</dt>
+          <dd>{{ project.solution['pt-BR'] }}</dd>
+        </div>
+        <div>
+          <dt>Papel</dt>
+          <dd>{{ project.role['pt-BR'] }}</dd>
+        </div>
+      </dl>
+
+      @if (project.technologies.length > 0) {
+        <ul class="project-tech">
+          @for (tech of project.technologies; track tech) {
+            <li>
+              <app-tag variant="accent">{{ tech }}</app-tag>
+            </li>
+          }
+        </ul>
+      }
+
+      <div class="project-actions">
+        @if (project.links.live) {
+          <app-button variant="secondary" [href]="project.links.live" target="_blank"
+            >Ver ao vivo</app-button
+          >
+        }
+        @if (project.links.repository) {
+          <app-button variant="secondary" [href]="project.links.repository" target="_blank"
+            >Repositório</app-button
+          >
+        }
+        <app-button variant="secondary" routerLink="/projects">Voltar para projetos</app-button>
+      </div>
+    </app-container>
+  </app-section>
+} @else {
+  <app-section>
+    <app-container>
+      <app-heading [level]="1" visual="display">Projeto não encontrado</app-heading>
+      <p class="project-not-found">
+        O projeto que você está procurando não existe ou foi removido.
+      </p>
+      <app-button variant="secondary" routerLink="/projects">Voltar para projetos</app-button>
+    </app-container>
+  </app-section>
+}

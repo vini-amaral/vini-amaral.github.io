@@ -1,4 +1,15 @@
-<section>
-  <h1>Projetos</h1>
-  <p>A lista de projetos publicados será implementada nos próximos prompts.</p>
-</section>
+<app-section>
+  <app-container>
+    <app-heading [level]="1" visual="display">Projetos</app-heading>
+
+    @if (projects().length > 0) {
+      <ul class="projects-list">
+        @for (project of projects(); track project.id) {
+          <li>
+            <app-project-summary [project]="project" />
+          </li>
+        }
+      </ul>
+    }
+  </app-container>
+</app-section>
