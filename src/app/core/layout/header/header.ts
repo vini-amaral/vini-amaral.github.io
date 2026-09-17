@@ -23,6 +23,7 @@ export class Header {
     { path: '/projects', label: 'Projetos', exact: false },
     { path: '/experience', label: 'Experiência', exact: false },
     { path: '/skills', label: 'Habilidades', exact: false },
+    { path: '/education', label: 'Educação', exact: false },
     { path: '/about', label: 'Sobre', exact: false },
     { path: '/contact', label: 'Contato', exact: false },
   ];

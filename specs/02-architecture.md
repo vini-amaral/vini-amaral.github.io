@@ -16,6 +16,7 @@ Keep the Angular version explicit and upgrade deliberately rather than following
 Use modern Angular standalone components.
 
 Avoid:
+
 - unnecessary NgModules
 - unnecessary global state
 - services that only wrap constants
@@ -39,6 +40,7 @@ src/
 │   │   ├── projects/
 │   │   ├── experience/
 │   │   ├── skills/
+│   │   ├── education/
 │   │   ├── about/
 │   │   ├── contact/
 │   │   └── not-found/
@@ -164,6 +166,7 @@ Required routes:
 - `/projects/:slug` → Project detail
 - `/experience` → Experience
 - `/skills` → Skills
+- `/education` → Education and Certifications
 - `/about` → About
 - `/contact` → Contact
 - `**` → custom 404

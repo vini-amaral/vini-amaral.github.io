@@ -42,7 +42,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 - [x] 020 — Experience page
 - [x] 021 — Projects page and project detail route
 - [x] 022 — Skills page
-- [ ] 023 — Education and Certifications page
+- [x] 023 — Education and Certifications page
 - [ ] 024 — Contact page
 - [ ] 025 — Custom 404 page
 

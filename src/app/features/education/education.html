@@ -1,0 +1,52 @@
+<app-section>
+  <app-container>
+    <app-heading [level]="1" visual="display">Educação e certificações</app-heading>
+  </app-container>
+</app-section>
+
+<app-section surface="raised">
+  <app-container>
+    <app-heading [level]="2" visual="h2">Formação acadêmica</app-heading>
+
+    @for (entry of education(); track entry.id) {
+      <div class="education-entry">
+        <app-heading [level]="3" visual="h4">{{ entry.institution }}</app-heading>
+        <p class="entry-degree">{{ entry.degree }}</p>
+        <p class="entry-date">{{ dateRange(entry) }}</p>
+        <p class="entry-description">{{ description(entry) }}</p>
+      </div>
+    }
+  </app-container>
+</app-section>
+
+<app-section>
+  <app-container>
+    <app-heading [level]="2" visual="h2">Certificações</app-heading>
+
+    <ul class="certifications-list">
+      @for (cert of certifications(); track cert.id) {
+        <li
+          class="certification-item"
+          [class.certification-item--expired]="cert.status === 'expired'"
+        >
+          <div class="certification-heading">
+            <app-heading [level]="3" visual="h4">{{ cert.name }}</app-heading>
+            @if (cert.status === 'active') {
+              <app-tag variant="accent">Ativa</app-tag>
+            }
+            @if (cert.status === 'expired') {
+              <app-tag>Expirada</app-tag>
+            }
+          </div>
+
+          <p class="certification-issuer">{{ cert.issuer }}</p>
+          <p class="certification-date">{{ certificationDate(cert) }}</p>
+
+          @if (cert.credentialId) {
+            <p class="certification-credential">ID da credencial: {{ cert.credentialId }}</p>
+          }
+        </li>
+      }
+    </ul>
+  </app-container>
+</app-section>

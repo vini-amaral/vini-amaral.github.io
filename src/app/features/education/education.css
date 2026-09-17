@@ -1,0 +1,77 @@
+.education-entry {
+  margin-top: 2rem;
+}
+
+.education-entry:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.entry-degree {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.entry-date {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+}
+
+.entry-description {
+  margin-top: 0.75rem;
+  max-width: 70ch;
+}
+
+.certifications-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.certification-item {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.certification-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.certification-item--expired {
+  opacity: 0.6;
+}
+
+.certification-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.certification-issuer {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.certification-date {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+}
+
+.certification-credential {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 768px) {
+  .certifications-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

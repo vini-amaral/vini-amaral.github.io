@@ -23,6 +23,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/skills/skills').then((m) => m.Skills),
   },
   {
+    path: 'education',
+    loadComponent: () => import('./features/education/education').then((m) => m.Education),
+  },
+  {
     path: 'about',
     loadComponent: () => import('./features/about/about').then((m) => m.About),
   },

@@ -59,3 +59,9 @@
 **Decision:** Present AI-assisted development and agentic workflows as a current learning/practice focus based on the construction of this portfolio.
 
 **Reason:** The user explicitly identified this activity as skill development. No production AI engineering experience should be claimed until supported by a real project.
+
+## ADR-011 — Education and Certifications gets a dedicated route
+
+**Decision:** Add `/education` as a required route (updating `specs/02-architecture.md` §8), showing Education and Certifications as its own page rather than folding it into About or Experience.
+
+**Reason:** `specs/08-implementation-backlog.md` already scoped prompt 023 as a dedicated "Education and Certifications page," but the architecture's routing list had not been updated to include it — a gap discovered while implementing that prompt. The user chose a dedicated route (consistent with every other content domain having its own page) over embedding it in an existing page.
