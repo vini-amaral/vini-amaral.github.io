@@ -65,3 +65,11 @@
 **Decision:** Add `/education` as a required route (updating `specs/02-architecture.md` §8), showing Education and Certifications as its own page rather than folding it into About or Experience.
 
 **Reason:** `specs/08-implementation-backlog.md` already scoped prompt 023 as a dedicated "Education and Certifications page," but the architecture's routing list had not been updated to include it — a gap discovered while implementing that prompt. The user chose a dedicated route (consistent with every other content domain having its own page) over embedding it in an existing page.
+
+## ADR-012 — Per-route SEO metadata deferred to client-side rendering only (MVP2 candidate: SSR/prerender)
+
+**Decision:** Prompt 028 implements per-route document titles, meta descriptions, canonical links and Open Graph/Twitter tags entirely client-side, via a custom Angular Router `TitleStrategy` (`src/app/core/services/seo-title-strategy.ts`). The static `src/index.html` shell only carries the Home page's metadata. No Angular SSR or prerendering was introduced.
+
+**Reason:** The architecture (`specs/02-architecture.md` §9) commits to a static, backend-free deployment on GitHub Pages, and SSR/prerendering was not in this prompt's scope. This keeps the fix small and consistent with the current architecture, but it means a crawler or link-unfurler (Slack, LinkedIn, Twitter/X, WhatsApp, etc.) that does not execute JavaScript will only ever see the Home page's title/description/OG tags, even when the shared link points to `/projects`, `/projects/:slug`, `/about`, and so on. Search engines that do execute JavaScript (Googlebot, Bing) are not affected.
+
+**Follow-up for a future MVP2:** Evaluate Angular SSR/prerendering (`@angular/ssr` static prerendering, which can still deploy to GitHub Pages as a build step) so every route ships its own real HTML with correct metadata baked in, instead of relying on client-side `Title`/`Meta` updates after navigation. Revisit alongside `public/sitemap.xml`, which currently only lists static top-level routes and would need per-project entries if project detail pages are meant to be indexed individually.

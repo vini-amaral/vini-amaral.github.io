@@ -4,7 +4,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { TitleStrategy, provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { AboutRepository, JsonAboutRepository } from './core/repositories/about-repository';
 import {
@@ -34,6 +34,7 @@ import {
   JsonSocialLinkRepository,
   SocialLinkRepository,
 } from './core/repositories/social-link-repository';
+import { SeoTitleStrategy } from './core/services/seo-title-strategy';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -42,6 +43,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(),
+    { provide: TitleStrategy, useClass: SeoTitleStrategy },
     { provide: ProfileRepository, useClass: JsonProfileRepository },
     { provide: HomeHighlightsRepository, useClass: JsonHomeHighlightsRepository },
     { provide: AboutRepository, useClass: JsonAboutRepository },

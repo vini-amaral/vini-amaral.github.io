@@ -9,7 +9,7 @@ import { Section } from '../../../shared/ui/section/section';
 
 // specs/09-decision-log.md ADR-007: the Hero shows an editorial positioning
 // instead of the raw LinkedIn headline, which emphasizes leadership roles.
-const HERO_TITLE = 'Software Engineer & Tech Lead';
+export const HERO_TITLE = 'Software Engineer & Tech Lead';
 
 @Component({
   selector: 'app-hero',

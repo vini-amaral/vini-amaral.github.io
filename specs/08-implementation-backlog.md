@@ -50,7 +50,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 
 - [x] 026 — Responsive behavior
 - [x] 027 — Accessibility review and fixes
-- [ ] 028 — SEO and metadata
+- [x] 028 — SEO and metadata
 - [ ] 029 — Performance review
 - [ ] 030 — Automated tests
 - [ ] 031 — Production build verification
@@ -59,3 +59,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 ## Definition of done
 
 The portfolio is complete only when all required routes work, themes work, content is data-driven, the repository boundary permits future API replacement, the site is responsive and accessible, tests/build pass, and GitHub Pages deployment is verified.
+
+## Future considerations (MVP2)
+
+- **SSR/prerendering for per-route SEO metadata.** Prompt 028 set up per-route titles/descriptions/canonical/OG tags client-side only (see ADR-012 in `specs/09-decision-log.md`). Crawlers/link-unfurlers that don't execute JavaScript only ever see the Home page's metadata. Consider Angular SSR/prerendering in a future MVP so every route ships correct metadata in its own static HTML.

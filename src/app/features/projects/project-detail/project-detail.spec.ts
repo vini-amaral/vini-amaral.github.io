@@ -93,6 +93,17 @@ describe('ProjectDetail', () => {
     expect(links).toContain('/projects');
   });
 
+  it('should update the document title and meta description once the project loads', () => {
+    fixture.componentInstance.slug = 'example-1';
+    fixture.detectChanges();
+    flushProjects(httpMock);
+    fixture.detectChanges();
+
+    expect(document.title).toBe('Exemplo 1 | Vinicius Alves do Amaral');
+    const description = document.querySelector('meta[name="description"]');
+    expect(description?.getAttribute('content')).toBe('Placeholder para projeto real.');
+  });
+
   it('should show a not-found message for an unknown slug instead of crashing', () => {
     fixture.componentInstance.slug = 'does-not-exist';
     fixture.detectChanges();
