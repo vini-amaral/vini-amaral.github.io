@@ -1,0 +1,50 @@
+.about-intro {
+  margin-top: 1rem;
+  max-width: 60ch;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.about-paragraph {
+  margin-top: 1rem;
+  max-width: 70ch;
+}
+
+.about-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.case-study {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.case-study dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent-foreground);
+}
+
+.case-study dd {
+  margin: 0.5rem 0 0;
+  max-width: 70ch;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 768px) {
+  .case-study {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-study div:last-child {
+    grid-column: 1 / -1;
+  }
+}

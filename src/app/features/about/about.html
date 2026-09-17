@@ -1,4 +1,73 @@
-<section>
-  <h1>Sobre</h1>
-  <p>O perfil e a narrativa profissional serão implementados nos próximos prompts.</p>
-</section>
+<app-section>
+  <app-container>
+    <app-heading [level]="1" visual="display">Sobre</app-heading>
+    @if (intro()) {
+      <p class="about-intro">{{ intro() }}</p>
+    }
+  </app-container>
+</app-section>
+
+@for (section of sections(); track section.id; let even = $even) {
+  <app-section [surface]="even ? 'raised' : 'default'">
+    <app-container>
+      <app-heading [level]="2" visual="h2">{{ section.title['pt-BR'] }}</app-heading>
+
+      @if (section.body) {
+        @for (paragraph of section.body; track $index) {
+          <p class="about-paragraph">{{ paragraph['pt-BR'] }}</p>
+        }
+      }
+
+      @if (section.capabilities) {
+        <ul class="about-tag-list">
+          @for (id of section.capabilities; track id) {
+            <li>
+              <app-tag>{{ labelFor(id) }}</app-tag>
+            </li>
+          }
+        </ul>
+      }
+
+      @if (section.competencies) {
+        <ul class="about-tag-list">
+          @for (id of section.competencies; track id) {
+            <li>
+              <app-tag variant="accent">{{ labelFor(id) }}</app-tag>
+            </li>
+          }
+        </ul>
+      }
+    </app-container>
+  </app-section>
+}
+
+@if (caseStudy(); as study) {
+  <app-section surface="raised">
+    <app-container>
+      <app-heading [level]="2" visual="h2">{{ study.title['pt-BR'] }}</app-heading>
+
+      <dl class="case-study">
+        <div>
+          <dt>Situação</dt>
+          <dd>{{ study.situation['pt-BR'] }}</dd>
+        </div>
+        <div>
+          <dt>Desafio</dt>
+          <dd>{{ study.challenge['pt-BR'] }}</dd>
+        </div>
+        <div>
+          <dt>Ação</dt>
+          <dd>{{ study.action['pt-BR'] }}</dd>
+        </div>
+        <div>
+          <dt>Resultado</dt>
+          <dd>{{ study.result['pt-BR'] }}</dd>
+        </div>
+        <div>
+          <dt>Aprendizado</dt>
+          <dd>{{ study.learning['pt-BR'] }}</dd>
+        </div>
+      </dl>
+    </app-container>
+  </app-section>
+}
