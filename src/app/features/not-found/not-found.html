@@ -1,5 +1,10 @@
-<section>
-  <h1>Página não encontrada</h1>
-  <p>O endereço acessado não existe ou foi movido.</p>
-  <a routerLink="/">Voltar para o início</a>
-</section>
+<app-section>
+  <app-container>
+    <div class="not-found texture-diagonal">
+      <p class="not-found-code" aria-hidden="true">404</p>
+      <app-heading [level]="1" visual="display">Página não encontrada</app-heading>
+      <p class="not-found-message">O endereço acessado não existe ou foi movido.</p>
+      <app-button routerLink="/">Voltar para o início</app-button>
+    </div>
+  </app-container>
+</app-section>

@@ -44,7 +44,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 - [x] 022 — Skills page
 - [x] 023 — Education and Certifications page
 - [x] 024 — Contact page
-- [ ] 025 — Custom 404 page
+- [x] 025 — Custom 404 page
 
 ### Phase 6 — Quality
 
