@@ -1,4 +1,22 @@
-<section>
-  <h1>Contato</h1>
-  <p>Os canais de contato serão implementados nos próximos prompts.</p>
-</section>
+<app-section>
+  <app-container>
+    <app-heading [level]="1" visual="display">Contato</app-heading>
+
+    @if (links().length > 0) {
+      <ul class="contact-list">
+        @for (link of links(); track link.id) {
+          <li class="contact-item">
+            <app-heading [level]="2" visual="h3">{{ link.label }}</app-heading>
+            <app-button
+              variant="secondary"
+              [href]="link.url!"
+              [target]="link.type === 'email' ? '_self' : '_blank'"
+            >
+              {{ displayValue(link) }}
+            </app-button>
+          </li>
+        }
+      </ul>
+    }
+  </app-container>
+</app-section>
