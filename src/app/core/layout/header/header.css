@@ -19,3 +19,22 @@ a {
 .theme-toggle:hover {
   border-color: var(--color-accent-foreground);
 }
+
+/* Below the point where the nav links no longer fit on one line, keep the
+   brand and theme toggle together on the first row and push the full nav
+   to its own row, instead of letting the toggle strand itself alone once
+   the nav wraps internally too. */
+@media (max-width: 767px) {
+  .brand {
+    order: 1;
+  }
+
+  .theme-toggle {
+    order: 2;
+  }
+
+  .nav-links {
+    order: 3;
+    flex-basis: 100%;
+  }
+}

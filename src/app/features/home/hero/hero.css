@@ -32,6 +32,13 @@
   color: var(--color-ink-muted);
 }
 
+@media (max-width: 767px) {
+  .hero-portrait {
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+}
+
 @media (min-width: 768px) {
   .hero-layout {
     grid-template-columns: 3fr 2fr;

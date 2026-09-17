@@ -1,8 +1,10 @@
 <header class="border-b border-border bg-surface">
   <div class="page-container flex flex-wrap items-center justify-between gap-4 py-4">
-    <a routerLink="/" class="font-display text-lg font-bold tracking-tight">Vinicius Amaral</a>
+    <a routerLink="/" class="brand font-display text-lg font-bold tracking-tight"
+      >Vinicius Amaral</a
+    >
 
-    <nav aria-label="Navegação principal" class="flex flex-wrap gap-4 text-sm">
+    <nav aria-label="Navegação principal" class="nav-links flex flex-wrap gap-4 text-sm">
       @for (link of navLinks; track link.path) {
         <a
           [routerLink]="link.path"
