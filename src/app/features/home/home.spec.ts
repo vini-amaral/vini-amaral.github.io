@@ -16,6 +16,10 @@ import {
   JsonProjectRepository,
   ProjectRepository,
 } from '../../core/repositories/project-repository';
+import {
+  JsonProfileRepository,
+  ProfileRepository,
+} from '../../core/repositories/profile-repository';
 import { JsonSkillRepository, SkillRepository } from '../../core/repositories/skill-repository';
 import {
   JsonSocialLinkRepository,
@@ -35,6 +39,7 @@ describe('Home', () => {
         provideRouter([]),
         provideHttpClient(),
         provideHttpClientTesting(),
+        { provide: ProfileRepository, useClass: JsonProfileRepository },
         { provide: HomeHighlightsRepository, useClass: JsonHomeHighlightsRepository },
         { provide: ProjectRepository, useClass: JsonProjectRepository },
         { provide: SkillRepository, useClass: JsonSkillRepository },
@@ -49,6 +54,18 @@ describe('Home', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
+    httpMock.expectOne('assets/data/profile.json').flush({
+      version: 1,
+      data: {
+        id: 'vinicius-alves-do-amaral',
+        name: 'Vinicius Alves do Amaral',
+        headline: 'Team Lead | Scrum Master | Tech Lead',
+        location: 'São Paulo, São Paulo, Brasil',
+        summary: { en: 'Summary.' },
+        source: 'linkedin',
+        reviewStatus: 'approved',
+      },
+    });
     httpMock.expectOne('assets/data/home-highlights.json').flush({
       version: 1,
       data: { updatedAt: '2026-01-01', items: [] },
