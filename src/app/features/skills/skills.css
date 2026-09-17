@@ -1,0 +1,16 @@
+.skill-group {
+  margin-top: 2rem;
+}
+
+.skill-group:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.skill-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}

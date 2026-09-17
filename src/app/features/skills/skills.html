@@ -1,4 +1,26 @@
-<section>
-  <h1>Habilidades</h1>
-  <p>Os grupos de habilidades técnicas serão implementados nos próximos prompts.</p>
-</section>
+<app-section>
+  <app-container>
+    <app-heading [level]="1" visual="display">Habilidades</app-heading>
+  </app-container>
+</app-section>
+
+@for (category of categories(); track category.id; let even = $even) {
+  <app-section [surface]="even ? 'raised' : 'default'">
+    <app-container>
+      <app-heading [level]="2" visual="h2">{{ category.label }}</app-heading>
+
+      @for (group of category.groups; track group.id) {
+        <div class="skill-group">
+          <app-heading [level]="3" visual="h4">{{ group.name }}</app-heading>
+          <ul class="skill-tag-list">
+            @for (item of group.items; track item) {
+              <li>
+                <app-tag>{{ item }}</app-tag>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </app-container>
+  </app-section>
+}
