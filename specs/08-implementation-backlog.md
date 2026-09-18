@@ -53,7 +53,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 - [x] 028 — SEO and metadata
 - [x] 029 — Performance review
 - [x] 030 — Automated tests
-- [ ] 031 — Production build verification
+- [x] 031 — Production build verification
 - [ ] 032 — Final GitHub Pages deployment verification
 
 ## Definition of done
