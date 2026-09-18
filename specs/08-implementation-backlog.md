@@ -52,7 +52,7 @@ Execute one prompt at a time. After each prompt, validate, inspect the result, f
 - [x] 027 — Accessibility review and fixes
 - [x] 028 — SEO and metadata
 - [x] 029 — Performance review
-- [ ] 030 — Automated tests
+- [x] 030 — Automated tests
 - [ ] 031 — Production build verification
 - [ ] 032 — Final GitHub Pages deployment verification
 
